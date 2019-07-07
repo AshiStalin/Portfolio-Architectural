@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 260px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+ .btnn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+ .btnnn{
+background-color: #4CAF50;
+  color: white;
+  padding: 12px 18px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  font-size:18px;
+ }
+
+.btnn:hover {
+  opacity: 0.8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size:16px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-size:16px;
+}
+
+
+.containerr {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+        <asp:HyperLink ID="HyperLink1" class="w3-bar-item w3-button" data-toggle="modal" data-target="#myModal1" runat="server" href="Includes/Myaccount.aspx" >My Account</asp:HyperLink>
+      <a href="Includes/Login.aspx" class="w3-bar-item w3-button">Logout</a>
+    </div>
+  </div>
+</div>
+    <div class="sidenav">
+        <a href="Index.aspx" class="w3-bar-item w3-button"><b>BR</b> Architects</a><hr />
+  <a href="#about">Dashboard</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="main" id="about">
+    <br />
+    <div class="w3-container w3-padding-32">
+  
+<div class="container ">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btnn" data-toggle="modal" data-target="#myModal" style="margin-left:30%;">Add New Customer</button>
+
+  <!-- Modal -->
+  <div class="modal fade " id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Fill in the details!</h4>
+        </div>
+        <div class="modal-body">
+            <div class="containerr">
+  <form action="/action_page.php">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Customer Name</label>
+    </div>
+    <div class="col-75">
+      <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Customer Email</label>
+    </div>
+    <div class="col-75">
+      <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    </div>
+  </div>
+  <div class="row">
+     <div class="col-25">
+      <label for="lname">Customer Address</label>
+    </div>
+    <div class="col-75">
+      <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+    </div>
+  </div>
+  <div class="row">
+     <div class="col-25">
+      <label for="lname">Customer Project</label>
+    </div>
+    <div class="col-75">
+      <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+    </div>
+  </div>
+      <div class="row">
+     <div class="col-25">
+      <label for="lname">Customer Number</label>
+    </div>
+    <div class="col-75">
+     <asp:TextBox ID="TextBox5" runat="server" ></asp:TextBox>
+    </div>
+  </div>
+  <div class="row">
+    <center><asp:Button ID="Button1" runat="server" Text="Add New Customer" class="btnnn" OnClick="Button1_Click"/></center>
+  </div>
+  </form>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+   <asp:Button ID="Button2" runat="server" Text="See Customer Details" class="btnn" style="margin-left:35%;" OnClientClick="window.open('../Includes/Displaydetails.aspx', 'Displaydetails')" OnClick="Button2_Click"/>
+        <br />
+    <asp:Button ID="Button3" runat="server" Text="Edit Customer Info" class="btnn " style="margin-left:35%; "/>
+        <br />
+
+       <div class="container ">
+  <!-- Trigger the modal with a button -->
+            
+  <!-- Modal -->
+  <div class="modal fade " id="myModal1" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit your details!</h4>
+        </div>
+        <div class="modal-body">
+            <div class="containerr">
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Admin Name</label>
+    </div>
+    <div class="col-75">
+      <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="lname">Admin Email</label>
+    </div>
+    <div class="col-75">
+      <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+    </div>
+  </div>
+  <div class="row">
+     <div class="col-25">
+      <label>Admin Password</label>
+    </div>
+    <div class="col-75">
+      <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+    </div>
+  </div>
+  <div class="row">
+    <center><asp:Button ID="Button4" runat="server" Text="Save Changes" class="btnnn" OnClick="Button4_Click"/></center>
+  </div>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+    </form>
+    </body>
+</html>
+
